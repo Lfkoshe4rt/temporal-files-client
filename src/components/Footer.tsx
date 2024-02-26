@@ -4,6 +4,7 @@ const Footer = () => {
       <a
         href="https://github.com/Lfkoshe4rt/temporal-files-client"
         target="_blank"
+        rel="noreferrer noopener"
         className="pb-6 text-violet-700 hover:text-violet-600"
       >
         &copy; Lfkoshe4rt
