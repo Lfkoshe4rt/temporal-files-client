@@ -4,25 +4,15 @@ import { useState } from "react";
 import { convertToUnits } from "../utils/format";
 import { truncateString } from "../utils/string";
 import ButtonUpload from "./ButtonUpload";
+import { TFile } from "../types/file";
 //import Modal from './Modal'
 //import { addFile } from './Store/FileStore'
-interface IFile {
-  _id: string;
-  name: string;
-  size: string;
-  url: string;
-  permanent: boolean;
-  private: boolean;
-  createdAt: string;
-  time: number;
-  key: string;
-}
 
 const UploadFile = () => {
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState<IFile | null>(null);
+  const [file, setFile] = useState<TFile | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [fileU, setFileU] = useState<IFile | null>(null);
+  const [fileU, setFileU] = useState<TFile | null>(null);
 
   const handleOpenModal = () => setIsOpen(!isOpen);
 
@@ -33,7 +23,7 @@ const UploadFile = () => {
     }
   };
 
-  const onSubmit = async (e: Event) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget as HTMLFormElement);
 
@@ -62,11 +52,11 @@ const UploadFile = () => {
     <>
       <form
         className="mx-auto flex flex-col items-center justify-center md:mt-5 md:w-[900px]"
-        //onSubmit={onSubmit}
+        onSubmit={onSubmit}
         encType="multipart/form-data"
       >
         <div className="flex w-full flex-col items-center">
-          <ButtonUpload setFile={setFile} file={file as IFile} />
+          <ButtonUpload setFile={setFile} file={file as TFile} />
 
           <div className="flex flex-col pb-3 md:flex-row md:gap-5">
             <div className="my-3">
