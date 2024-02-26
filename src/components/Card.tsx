@@ -1,9 +1,6 @@
-type CardProps = {
-  content: string;
-  children: React.ReactNode;
-};
+import { Card } from "@/types/card";
 
-const Card = ({ content, children }: CardProps) => {
+const Card = ({ content, children }: Card) => {
   return (
     <div className="w-80 text-balance text-center flex items-center flex-col">
       {children}
