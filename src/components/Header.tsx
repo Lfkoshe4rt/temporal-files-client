@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="m-autp flex flex-col items-center justify-center pb-24">
+    <div className="m-auto flex flex-col items-center justify-center pb-24">
       <h1 className="text-balance text-center text-3xl font-bold sm:text-5xl">
         Comparte archivos de manera temporal
       </h1>
