@@ -5,8 +5,8 @@ import { convertToUnits } from "../utils/format";
 import { truncateString } from "../utils/string";
 import ButtonUpload from "./ButtonUpload";
 import { TFile } from "../types/file";
+import { addFile } from "./Store";
 //import Modal from './Modal'
-//import { addFile } from './Store/FileStore'
 
 const UploadFile = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ const UploadFile = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        //addFile(data)
+        addFile(data);
         setFileU(data);
         setFile(null);
         (e.currentTarget as HTMLFormElement)?.reset();
