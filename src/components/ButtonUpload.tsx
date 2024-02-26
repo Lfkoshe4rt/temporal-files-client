@@ -1,13 +1,7 @@
 import { truncateString } from "../utils/string";
-import { TFile } from "@/types/file";
+import { TButtonUpload } from "@/types/buttonUpload";
 
-const ButtonUpload = ({
-  setFile,
-  file,
-}: {
-  setFile: Function;
-  file: TFile;
-}) => {
+const ButtonUpload = ({ setFile, file }: TButtonUpload) => {
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const droppedFile = e.dataTransfer?.files[0];
