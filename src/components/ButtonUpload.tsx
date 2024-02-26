@@ -1,21 +1,12 @@
 import { truncateString } from "../utils/string";
-
-interface IFile {
-  _id: string;
-  name: string;
-  size: string;
-  url: string;
-  permanent: boolean;
-  private: boolean;
-  createdAt: string;
-}
+import { TFile } from "@/types/file";
 
 const ButtonUpload = ({
   setFile,
   file,
 }: {
   setFile: Function;
-  file: IFile;
+  file: TFile;
 }) => {
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
