@@ -4,7 +4,7 @@ import { TModal } from "@/types/Modal";
 import { useEffect } from "react";
 import { convertToUnits } from "../utils/format";
 import { truncateString } from "../utils/string";
-//import Timer from "./Timer";
+import Timer from "./Timer";
 
 const Modal = ({ file, isOpen, onClose }: TModal) => {
   const handleCopy = () => {
@@ -97,12 +97,12 @@ const Modal = ({ file, isOpen, onClose }: TModal) => {
             {!file.permanent && (
               <li className="my-2">
                 <strong className="pr-1 text-lg">Expira en:</strong>
-                <span className="text-lg font-bold text-yellow-400">03:45</span>
-                {/* <Timer
+
+                <Timer
                   className="text-lg font-bold text-yellow-400"
-                  time={time}
+                  time={file.time}
                   onFinish={onClose}
-                /> */}
+                />
               </li>
             )}
 
