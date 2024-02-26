@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { TFile } from "../types/file";
 import { convertToUnits } from "../utils/format";
 import { truncateString } from "../utils/string";
 import ButtonUpload from "./ButtonUpload";
-import { TFile } from "../types/file";
+import Modal from "./Modal";
 import { addFile } from "./Store";
-//import Modal from './Modal'
 
 const UploadFile = () => {
   const [loading, setLoading] = useState(false);
@@ -16,9 +16,9 @@ const UploadFile = () => {
 
   const handleOpenModal = () => setIsOpen(!isOpen);
 
-  const handleKeyPress = (e: KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const key = e.key;
-    if (key < "1" || key > "9") {
+    if (key < "0" || key > "9") {
       e.preventDefault();
     }
   };
@@ -69,7 +69,7 @@ const UploadFile = () => {
                 type="number"
                 name="minutes"
                 id="minutes"
-                //	onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyPress}
                 maxLength={3}
               />
               <span className="ml-1">min</span>
@@ -135,13 +135,13 @@ const UploadFile = () => {
         </button>
       </form>
 
-      {/* {loading && (
-				<div className="flex justify-center ">
-					<div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-slate-300"></div>
-				</div>
-			)}
+      {loading && (
+        <div className="flex justify-center ">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-slate-300"></div>
+        </div>
+      )}
 
-			<Modal isOpen={isOpen} onClose={handleOpenModal} file={fileU as IFile} /> */}
+      <Modal isOpen={isOpen} onClose={handleOpenModal} file={fileU as TFile} />
     </>
   );
 };
