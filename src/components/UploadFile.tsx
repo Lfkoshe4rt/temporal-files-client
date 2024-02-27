@@ -18,6 +18,11 @@ const UploadFile = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const key = e.key;
+
+    if (key === "Backspace") {
+      return;
+    }
+
     if (key < "0" || key > "9") {
       e.preventDefault();
     }
@@ -33,7 +38,7 @@ const UploadFile = () => {
     }
 
     setLoading(true);
-    fetch("http://localhost:3000/upload", {
+    fetch(`${process.env.API_URI}/upload`, {
       method: "POST",
       body: formData,
     })
