@@ -4,11 +4,11 @@ import { TModal } from "@/types/Modal";
 import { useEffect } from "react";
 import { convertToUnits } from "../utils/format";
 import { truncateString } from "../utils/string";
-import Timer from "./Timer";
+import TimerModal from "./TimerModal";
 
 const Modal = ({ file, isOpen, onClose }: TModal) => {
   const handleCopy = () => {
-    navigator.clipboard.writeText("http://localhost:4321/file?=" + file._id);
+    navigator.clipboard.writeText(`${process.env.URI}/file/${file._id}`);
   };
 
   const handleCopyKey = () => {
@@ -98,7 +98,7 @@ const Modal = ({ file, isOpen, onClose }: TModal) => {
               <li className="my-2">
                 <strong className="pr-1 text-lg">Expira en:</strong>
 
-                <Timer
+                <TimerModal
                   className="text-lg font-bold text-yellow-400"
                   time={file.time}
                   onFinish={onClose}
