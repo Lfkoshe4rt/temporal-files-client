@@ -1,32 +1,37 @@
 "use client";
-import { useEffect, useState } from "react";
-import { TTimer } from "@/types/timer";
 
-const Timer = ({ time, onFinish, className }: TTimer) => {
-  const [minutes, setMinutes] = useState(time);
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+type TimerProps = {
+  createdAt: string;
+  min: number;
+};
+
+const Timer = ({ createdAt, min = 0 }: TimerProps) => {
+  const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const startTime = new Date(createdAt).getTime();
+  const router = useRouter();
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1);
-      } else if (minutes > 0) {
-        setMinutes(minutes - 1);
-        setSeconds(59);
-      } else {
-        clearInterval(timer);
-        onFinish();
+    const interval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000);
+      const remainingTimeInSeconds = min * 60 - elapsedTimeInSeconds;
+      setMinutes(Math.floor(remainingTimeInSeconds / 60));
+      setSeconds(remainingTimeInSeconds % 60);
+
+      if (remainingTimeInSeconds <= 0) {
+        clearInterval(interval);
+        router.push("/");
       }
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, [minutes, seconds, onFinish]);
+    return () => clearInterval(interval);
+  }, [minutes, seconds, min, startTime, router]);
 
-  return (
-    <span className={className}>{`${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`}</span>
-  );
+  return <span>{`${minutes}:${seconds < 10 ? "0" : ""}${seconds}`}</span>;
 };
 
 export default Timer;
