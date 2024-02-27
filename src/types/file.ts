@@ -8,4 +8,5 @@ export type TFile = {
   createdAt: string;
   time: number;
   key: string;
+  message: string;
 };
