@@ -1,13 +1,19 @@
-import { addFile } from "@/components/Store";
 import { TFile } from "@/types/file";
 import { useState } from "react";
+import { persistSessionStorage } from "./persistSessionStorage";
 
 const FileUploadLogic = () => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<TFile | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleModal = () => setIsOpen(!isOpen);
+  const toggleModal = () => {
+    if (isOpen) {
+      setIsOpen(false);
+      setFile(null);
+      return;
+    }
+  };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,6 +25,7 @@ const FileUploadLogic = () => {
     }
 
     setLoading(true);
+
     fetch(`${process.env.API_URI}/upload`, {
       method: "POST",
       body: formData,
@@ -26,10 +33,9 @@ const FileUploadLogic = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        addFile(data);
-        setFile(null);
+        setFile(data);
         setIsOpen(true);
-
+        persistSessionStorage("file", data);
         (e.currentTarget as HTMLFormElement)?.reset();
       });
   };
