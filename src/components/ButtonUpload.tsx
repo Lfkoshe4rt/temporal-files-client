@@ -1,3 +1,4 @@
+"use client";
 import { truncateString } from "../utils/string";
 import { TButtonUpload } from "@/types/buttonUpload";
 
@@ -19,7 +20,7 @@ const ButtonUpload = ({ setFile, file }: TButtonUpload) => {
   };
 
   return (
-    <div onDragOver={handleDragOver} onDrop={handleDrop} className="pb-3">
+    <section onDragOver={handleDragOver} onDrop={handleDrop} className="pb-3">
       <label
         htmlFor="file"
         className="flex h-28  w-[700px] cursor-pointer items-center justify-center rounded-md  border-8  border-dashed  border-white  font-bold  uppercase  text-white hover:border-slate-300  hover:text-slate-300"
@@ -35,7 +36,7 @@ const ButtonUpload = ({ setFile, file }: TButtonUpload) => {
         id="file"
         onChange={handleChange}
       />
-    </div>
+    </section>
   );
 };
 
