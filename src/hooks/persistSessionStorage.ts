@@ -8,7 +8,7 @@ export const getSessionStorage = (key: string) => {
 };
 
 export const removeSessionStorage = (key: string) => {
-  sessionStorage.removeItem(key);
+  if (getSessionStorage(key)) sessionStorage.removeItem(key);
 };
 
 export const clearSessionStorage = () => {
