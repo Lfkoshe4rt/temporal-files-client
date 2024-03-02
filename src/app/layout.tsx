@@ -1,8 +1,6 @@
+import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PreFooter from "@/components/PreFooter";
 
 export const metadata: Metadata = {
   title: "Temporal Files",
@@ -16,10 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-neutral-900">
-      <body className=" dark:text-white mx-auto h-screen p-6 md:w-[1400px]">
-        <Header />
+      <body className=" dark:text-white mx-auto h-screen  md:w-[1400px]">
         {children}
-        <PreFooter />
         <Footer />
       </body>
     </html>
