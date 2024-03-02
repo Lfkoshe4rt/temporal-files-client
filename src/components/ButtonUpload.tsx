@@ -1,4 +1,3 @@
-"use client";
 import { truncateString } from "../utils/string";
 import { TButtonUpload } from "@/types/buttonUpload";
 
