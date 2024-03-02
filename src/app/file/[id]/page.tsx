@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Timer from "@/components/Timer";
 import { TFile } from "@/types/file";
 import { redirect } from "next/navigation";
@@ -20,21 +20,7 @@ export default async function File({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <header>
-        <nav className="h-12  flex items-center justify-between w-full px-12">
-          <a href="/" className="text-xl font-bold uppercase">
-            Temporal files
-          </a>
-          <ul className="flex gap-5">
-            <li>
-              <a href="/">Inicio</a>
-            </li>
-            <li>
-              <a href="/contacto">Contacto</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <ul className="list-none">
@@ -61,8 +47,6 @@ export default async function File({ params }: { params: { id: string } }) {
           </li>
         </ul>
       </main>
-
-      <Footer />
     </>
   );
 }
