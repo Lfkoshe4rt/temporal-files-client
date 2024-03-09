@@ -1,22 +1,24 @@
 import Header from "@/components/Header";
 import Timer from "@/components/Timer";
-import { TFile } from "@/types/file";
+import { TResponse } from "@/types/file";
 import { redirect } from "next/navigation";
 
 import { convertToUnits } from "@/utils/format";
 
 enum ErrorFile {
-  NOT_FOUND = "File not found",
+  FAILED = "FAILED",
 }
 
 export default async function File({ params }: { params: { id: string } }) {
   const { id } = params;
 
-  const data: TFile = await fetch(`${process.env.API_URI}/file/${id}`, {
+  const response: TResponse = await fetch(`${process.env.API_URI}/file/${id}`, {
     cache: "no-cache",
   }).then((res) => res.json());
 
-  if (data.message == ErrorFile.NOT_FOUND) redirect("/");
+  if (response.status == ErrorFile.FAILED) redirect("/");
+
+  const { data } = response;
 
   return (
     <>
