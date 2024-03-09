@@ -1,6 +1,5 @@
 import About from "@/components/About";
 import Features from "@/components/Features";
-import FileUploadForm from "@/components/FileUploadForm";
 
 export default function Home() {
   return (
@@ -12,9 +11,7 @@ export default function Home() {
       </header>
 
       <About />
-      <main>
-        <FileUploadForm />
-      </main>
+      <main></main>
       <Features />
     </>
   );
