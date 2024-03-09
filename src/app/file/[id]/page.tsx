@@ -36,7 +36,14 @@ export default async function File({ params }: { params: { id: string } }) {
           <li>Creado: {new Date(data.createdAt).toLocaleDateString()}</li>
           <li>
             <span>
-              Expira en: {<Timer createdAt={data.createdAt} min={data.time} />}
+              Expira en:{" "}
+              {
+                <Timer
+                  createdAt={data.createdAt}
+                  className="text-yellow-300"
+                  min={data.time}
+                />
+              }
               minutos
             </span>
           </li>
