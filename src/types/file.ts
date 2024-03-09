@@ -10,3 +10,8 @@ export type TFile = {
   key: string;
   message: string;
 };
+
+export type TResponse = {
+  status: string;
+  data: TFile;
+};
