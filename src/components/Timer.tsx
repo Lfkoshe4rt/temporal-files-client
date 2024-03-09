@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 type TimerProps = {
   createdAt: string;
   min: number;
+  className: string;
 };
 
-const Timer = ({ createdAt, min = 0 }: TimerProps) => {
+const Timer = ({ createdAt, min = 0, className }: TimerProps) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const startTime = new Date(createdAt).getTime();
@@ -31,7 +32,11 @@ const Timer = ({ createdAt, min = 0 }: TimerProps) => {
     return () => clearInterval(interval);
   }, [minutes, seconds, min, startTime, router]);
 
-  return <span>{`${minutes}:${seconds < 10 ? "0" : ""}${seconds}`}</span>;
+  return (
+    <span className={className}>{`${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`}</span>
+  );
 };
 
 export default Timer;
