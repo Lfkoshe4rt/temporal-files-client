@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Features from "@/components/Features";
+import UploadFile from "@/components/UploadFile";
 
 export default function Home() {
   return (
@@ -9,10 +10,13 @@ export default function Home() {
           Comparte archivos de manera temporal
         </h1>
       </header>
+      <main>
+        <About />
 
-      <About />
-      <main></main>
-      <Features />
+        <UploadFile />
+
+        <Features />
+      </main>
     </>
   );
 }
