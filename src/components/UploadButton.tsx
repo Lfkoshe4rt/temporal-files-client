@@ -1,4 +1,4 @@
-import { truncateString } from "../utils/string";
+import { truncateString } from "@/utils/string";
 import { TUploadButton } from "@/types/uploadButton";
 
 const UploadButton = ({ setFile, file }: TUploadButton) => {
