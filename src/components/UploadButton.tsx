@@ -2,6 +2,8 @@ import { truncateString } from "@/utils/string";
 import { TUploadButton } from "@/types/uploadButton";
 
 const UploadButton = ({ setFile, file }: TUploadButton) => {
+  const isMobile = window.innerWidth < 768;
+
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const droppedFile = e.dataTransfer?.files[0];
@@ -19,14 +21,22 @@ const UploadButton = ({ setFile, file }: TUploadButton) => {
   };
 
   return (
-    <section onDragOver={handleDragOver} onDrop={handleDrop} className="pb-3">
+    <section
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      className="flex justify-center items-center"
+    >
       <label
         htmlFor="file"
-        className="flex h-28  w-[700px] cursor-pointer items-center justify-center rounded-md  border-8  border-dashed  border-white  font-bold  uppercase  text-white hover:border-slate-300  hover:text-slate-300"
+        className="flex h-28 w-[300px] sm:w-[700px] cursor-pointer items-center justify-center rounded-md  border-8  border-dashed  border-white  font-bold  uppercase  text-white hover:border-slate-300  hover:text-slate-300"
       >
-        {file
-          ? truncateString(file.name, 40, 40)
-          : "Arrastra y suelta tu archivo, o haz clic para seleccionar uno"}
+        <span className="px-3 text-center text-sm md:text-base">
+          {file
+            ? truncateString(file.name, 35, 35)
+            : isMobile
+            ? "Presiona para subir un archivo"
+            : "Arrastra y suelta un archivo aquí o presiona para subirlo"}
+        </span>
       </label>
       <input
         className="hidden"
