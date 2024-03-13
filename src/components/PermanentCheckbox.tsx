@@ -1,7 +1,6 @@
-
 const PermanentCheckbox = () => {
   return (
-    <div className="my-3 flex cursor-pointer items-center justify-center gap-2">
+    <div className=" flex cursor-pointer items-center justify-center gap-2">
       <label htmlFor="permanent" className="cursor-pointer">
         Permanente:
       </label>
