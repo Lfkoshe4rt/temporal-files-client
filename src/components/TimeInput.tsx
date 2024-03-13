@@ -1,4 +1,3 @@
-
 const TimeInput = () => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const key = e.key;
@@ -13,7 +12,7 @@ const TimeInput = () => {
   };
 
   return (
-    <div className="my-3">
+    <div>
       <label htmlFor="minutes">Tiempo: </label>
       <input
         min="1"
