@@ -1,7 +1,6 @@
-
 const PrivateCheckbox = () => {
   return (
-    <div className="my-3 flex cursor-pointer items-center justify-center gap-2">
+    <div className="flex cursor-pointer items-center justify-center gap-2">
       <label htmlFor="private" className="cursor-pointer">
         Privado:
       </label>
