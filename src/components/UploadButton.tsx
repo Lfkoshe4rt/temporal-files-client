@@ -1,8 +1,9 @@
 import { truncateString } from "@/utils/string";
 import { TUploadButton } from "@/types/uploadButton";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const UploadButton = ({ setFile, file }: TUploadButton) => {
-  const isMobile = window.innerWidth < 768;
+  const isMobile = useIsMobile();
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
