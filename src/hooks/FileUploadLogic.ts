@@ -31,11 +31,11 @@ const FileUploadLogic = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((file) => {
         setLoading(false);
-        setFile(data);
+        setFile(file.data);
         setIsOpen(true);
-        persistSessionStorage("file", data);
+        persistSessionStorage("file", file.data);
         (e.currentTarget as HTMLFormElement)?.reset();
       });
   };
