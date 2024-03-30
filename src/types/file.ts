@@ -14,4 +14,5 @@ export type TFile = {
 export type TResponse = {
   status: string;
   data: TFile;
+  message: string;
 };
