@@ -42,9 +42,25 @@ const PrivateFile = ({ id }: { id: string }) => {
   return (
     <>
       {!file && (
-        <form onSubmit={getPrivateFile}>
-          <input type="password" name="key" />
-          <button type="submit">Submit</button>
+        <form
+          onSubmit={getPrivateFile}
+          className="mx-auto mt-7 flex w-[500px] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-5 "
+        >
+          <label htmlFor="key" className="text-lg">
+            Coloque la clave para desbloquear su archivo
+          </label>
+          <input
+            className="w-[400px] p-2 text-center"
+            id="key"
+            type="password"
+            name="key"
+          />
+          <button
+            className="mt-2 inline-block rounded-md bg-green-500 px-5 py-1"
+            type="submit"
+          >
+            Desbloquear
+          </button>
         </form>
       )}
 
