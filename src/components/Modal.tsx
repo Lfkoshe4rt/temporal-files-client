@@ -47,9 +47,14 @@ const Modal = ({
               <p className="p-1">Archivo subido correctamente</p>
 
               {file.private && (
-                <p onClick={handleCopyKey}>
+                <p
+                  onClick={handleCopyKey}
+                  title="CLICK PARA COPIAR LA CLAVE EN EL PORTAPAPELES"
+                >
                   Clave: &nbsp;
-                  <span className="text-green-700">{file.key}</span>
+                  <span className="cursor-pointer text-green-700 hover:text-green-500">
+                    {file.key}
+                  </span>
                 </p>
               )}
             </div>
