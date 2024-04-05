@@ -1,26 +1,32 @@
 "use client";
 import FileUploadLogic from "@/hooks/FileUploadLogic";
 
-import ButtonUpload from "./UploadButton";
-import FileOptions from "./FileOptions";
 import FileControlButtons from "./FileControlButtons";
+import FileOptions from "./FileOptions";
 import Modal from "./Modal";
-import { useEffect } from "react";
+import ButtonUpload from "./UploadButton";
 
 const UploadFile = () => {
-  const { file, setFile, onSubmit, isOpen, toggleModal } = FileUploadLogic();
-
-  const handleRemove = () => {
-    setFile(null);
-  };
+  const {
+    file,
+    handleRemove,
+    onSubmit,
+    isOpen,
+    toggleModal,
+    prepareFile,
+    setPrepareFile,
+  } = FileUploadLogic();
 
   return (
     <div className="flex flex-col items-center justify-center">
       <form onSubmit={onSubmit} encType="multipart/form-data">
-        <ButtonUpload file={file!} setFile={setFile} />
-        {file && (
+        <ButtonUpload
+          setPrepareFile={setPrepareFile}
+          prepareFile={prepareFile!}
+        />
+        {prepareFile && (
           <>
-            <FileOptions file={file} />
+            <FileOptions file={prepareFile} />
             <FileControlButtons handleRemove={handleRemove} />
           </>
         )}
