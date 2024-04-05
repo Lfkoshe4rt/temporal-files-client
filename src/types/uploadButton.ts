@@ -1,6 +1,6 @@
 import { TFile } from "./file";
 
 export type TUploadButton = {
-  setFile: Function;
-  file: TFile;
+  prepareFile: File;
+  setPrepareFile: Function;
 };
