@@ -6,23 +6,22 @@ const FileUploadLogic = () => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<TFile | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [prepareFile, setPrepareFile] = useState<File | null>(null);
 
   const toggleModal = () => {
-    if (isOpen) {
-      setIsOpen(false);
-      setFile(null);
-      return;
-    }
+    setIsOpen(!isOpen);
+    setFile(null);
+  };
+
+  const handleRemove = () => {
+    setPrepareFile(null);
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const formData = new FormData(e.currentTarget);
 
-    if (!file) {
-      alert("No has seleccionado un archivo");
-      return;
-    }
+    formData.append("file", prepareFile!);
 
     setLoading(true);
 
@@ -31,11 +30,11 @@ const FileUploadLogic = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((file) => {
+      .then((res) => {
         setLoading(false);
-        setFile(file.data);
+        setFile(res.data);
         setIsOpen(true);
-        persistSessionStorage("file", file.data);
+        persistSessionStorage("file", res.data);
         (e.currentTarget as HTMLFormElement)?.reset();
       });
   };
@@ -47,6 +46,9 @@ const FileUploadLogic = () => {
     onSubmit,
     toggleModal,
     isOpen,
+    setPrepareFile,
+    prepareFile,
+    handleRemove,
   };
 };
 
