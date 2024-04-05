@@ -5,14 +5,14 @@ import PermanentCheckbox from "./PermanentCheckbox";
 import TimeInput from "./TimeInput";
 import { TFile } from "@/types/file";
 
-const FileOptions = ({ file }: { file: TFile }) => {
+const FileOptions = ({ file }: { file: File }) => {
   const isMobile = window.innerWidth < 768;
 
   return (
-    <div className="relative bg-neutral-800 h-auto w-[300px] rounded-md md:w-[700px] flex gap-6 items-center md:justify-between my-3 md:px-5 py-4">
+    <div className="relative my-3 flex h-auto w-[300px] items-center gap-6 rounded-md bg-neutral-800 py-4 md:w-[700px] md:justify-between md:px-5">
       <div>
         {!isMobile && (
-          <div className="h-16 w-16 bg-neutral-700 rounded-md flex justify-center items-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-md bg-neutral-700">
             <svg
               width="50"
               height="50"
@@ -34,7 +34,7 @@ const FileOptions = ({ file }: { file: TFile }) => {
         )}
       </div>
 
-      <div className="flex flex-col gap-3 w-full">
+      <div className="flex w-full flex-col gap-3">
         <div className="flex flex-col gap-3 md:flex-row">
           <p>{truncateString(file.name, 25, 25)}</p>
           <p>
@@ -42,7 +42,7 @@ const FileOptions = ({ file }: { file: TFile }) => {
             {convertToUnits(Number(file.size))}
           </p>
         </div>
-        <div className="flex flex-col md:flex-row items-start  gap-5">
+        <div className="flex flex-col items-start gap-5  md:flex-row">
           <TimeInput />
           <PermanentCheckbox />
           <PrivateCheckbox />
