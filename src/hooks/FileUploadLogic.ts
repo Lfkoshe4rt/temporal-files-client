@@ -10,7 +10,7 @@ const FileUploadLogic = () => {
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
-    setFile(null);
+    setPrepareFile(null);
   };
 
   const handleRemove = () => {
