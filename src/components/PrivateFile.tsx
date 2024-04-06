@@ -14,10 +14,6 @@ const PrivateFile = ({ id }: { id: string }) => {
 
     const key = formData.get("key") as string;
 
-    const dataJson = JSON.stringify({ key: key });
-
-    console.log(dataJson);
-
     const response: TResponse = await fetch(
       `${process.env.API_URI}/file/${id}`,
       {
