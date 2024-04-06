@@ -15,6 +15,7 @@ const UploadFile = () => {
     toggleModal,
     prepareFile,
     setPrepareFile,
+    loading,
   } = FileUploadLogic();
 
   return (
@@ -27,7 +28,7 @@ const UploadFile = () => {
         {prepareFile && (
           <>
             <FileOptions file={prepareFile} />
-            <FileControlButtons handleRemove={handleRemove} />
+            <FileControlButtons handleRemove={handleRemove} loading={loading} />
           </>
         )}
       </form>
