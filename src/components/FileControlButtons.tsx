@@ -1,16 +1,28 @@
-const FileControlButtons = ({ handleRemove }: { handleRemove: () => void }) => {
+const FileControlButtons = ({
+  handleRemove,
+  loading,
+}: {
+  handleRemove: () => void;
+  loading: Boolean;
+}) => {
   return (
-    <div className="flex gap-1 justify-center items-center">
-      <button
-        onClick={handleRemove}
-        className="hover:bg-red-600 bg-red-500 h-10 w-32 rounded-md m-3 md:m-2 "
-      >
-        Cancelar
-      </button>
+    <div className="flex items-center justify-center gap-1">
+      {loading ? (
+        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-slate-300"></div>
+      ) : (
+        <>
+          <button
+            onClick={handleRemove}
+            className="m-3 h-10 w-32 rounded-md bg-red-500 hover:bg-red-600 md:m-2 "
+          >
+            Cancelar
+          </button>
 
-      <button className="hover:bg-green-800 bg-green-700 h-10 w-32 rounded-md m-3 md:m-2 ">
-        Subir archivo
-      </button>
+          <button className="m-3 h-10 w-32 rounded-md bg-green-700 hover:bg-green-800 md:m-2 ">
+            Subir archivo
+          </button>
+        </>
+      )}
     </div>
   );
 };
