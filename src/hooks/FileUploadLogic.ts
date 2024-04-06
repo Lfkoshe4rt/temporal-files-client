@@ -31,6 +31,7 @@ const FileUploadLogic = () => {
     })
       .then((res) => res.json())
       .then((res) => {
+        setPrepareFile(null);
         setLoading(false);
         setFile(res.data);
         setIsOpen(true);
