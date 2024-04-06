@@ -32,7 +32,7 @@ const UploadFile = () => {
         )}
       </form>
 
-      <Modal isOpen={isOpen} onClose={toggleModal} file={file} />
+      <Modal isOpen={isOpen} onClose={toggleModal} file={file!} />
     </div>
   );
 };
