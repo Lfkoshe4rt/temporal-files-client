@@ -6,7 +6,7 @@ import { TFile } from "@/types/file";
 
 const FileInfo = ({ file }: { file: TFile }) => {
   return (
-    <div className="my-14 flex h-auto w-auto gap-3 rounded-md bg-neutral-800 p-5">
+    <div className="my-16 flex h-auto w-auto gap-3 rounded-md bg-neutral-800 p-5">
       <div>
         <div className="flex h-16 w-16 items-center justify-center rounded-md bg-neutral-700">
           <svg
