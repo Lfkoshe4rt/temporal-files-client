@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-neutral-900">
-      <body className=" dark:text-white mx-auto h-screen  md:w-[1400px]">
-        {children}
+      <body className=" mx-auto flex min-h-screen flex-col  md:w-[1400px]  dark:text-white">
+        <div className="flex-1">{children}</div>
         <Footer />
       </body>
     </html>
