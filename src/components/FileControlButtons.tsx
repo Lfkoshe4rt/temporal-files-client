@@ -13,12 +13,12 @@ const FileControlButtons = ({
         <>
           <button
             onClick={handleRemove}
-            className="m-3 h-10 w-32 rounded-md bg-red-500 hover:bg-red-600 md:m-2 "
+            className="m-3 h-9 w-32 rounded-md bg-red-500 hover:bg-red-500 md:m-2 "
           >
             Cancelar
           </button>
 
-          <button className="m-3 h-10 w-32 rounded-md bg-green-700 hover:bg-green-800 md:m-2 ">
+          <button className="m-3 h-9 w-32 rounded-md bg-green-600 hover:bg-green-700 md:m-2 ">
             Subir archivo
           </button>
         </>
