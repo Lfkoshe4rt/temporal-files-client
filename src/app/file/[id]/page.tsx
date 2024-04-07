@@ -29,7 +29,7 @@ export default async function File({ params }: { params: { id: string } }) {
     <>
       <Header />
 
-      <main className="">
+      <main>
         {!data ? <PrivateFile id={id} /> : <FileInfo file={data} />}
 
         <div className=" mt-16 flex items-center justify-center">
