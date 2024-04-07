@@ -40,7 +40,7 @@ const PrivateFile = ({ id }: { id: string }) => {
       {!file && (
         <form
           onSubmit={getPrivateFile}
-          className="mx-auto mt-7 flex w-[500px] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-5 "
+          className="mx-auto mt-8 flex w-[500px] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-5 "
         >
           <label htmlFor="key" className="text-lg">
             Coloque la clave para desbloquear su archivo
