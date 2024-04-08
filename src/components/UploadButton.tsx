@@ -31,7 +31,7 @@ const UploadButton = ({ setPrepareFile, prepareFile }: TUploadButton) => {
     >
       <label
         htmlFor="file"
-        className="flex h-28 w-[300px] cursor-pointer items-center justify-center rounded-md border-8  border-dashed  border-white  font-bold  uppercase  text-white  hover:border-slate-300 hover:text-slate-300  sm:w-[700px]"
+        className="flex h-28 w-[300px] cursor-pointer items-center justify-center rounded-md border-8  border-dashed border-white font-bold uppercase text-white  transition-all  delay-75 ease-in-out hover:scale-105  hover:border-slate-300 hover:text-slate-300  sm:w-[700px]"
       >
         <span className="px-3 text-center text-sm md:text-base">
           {prepareFile
