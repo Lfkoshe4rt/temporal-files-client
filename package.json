@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.7.2",
+    "framer-motion": "^11.0.25",
     "nanostores": "^0.10.0",
     "next": "14.1.0",
     "react": "^18",
