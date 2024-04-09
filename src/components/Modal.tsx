@@ -78,7 +78,7 @@ const Modal = ({
                     <p>Clave:</p>
                     <button
                       onClick={handleCopyKey}
-                      className="text-green-600 hover:text-green-700"
+                      className="text-green-700 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-green-700"
                       title="Copiar clave"
                     >
                       <span className="flex items-center gap-1">
