@@ -1,7 +1,7 @@
 "use client";
 
 import { TFile, TResponse } from "@/types/file";
-import { ReactComponentElement, useState } from "react";
+import { useState } from "react";
 import FileInfo from "./FileInfo";
 
 const messages: { [key: string]: string } = {
