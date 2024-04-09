@@ -13,7 +13,8 @@ const FileControlButtons = ({
         <>
           <button
             onClick={handleRemove}
-            className="m-3 h-9 w-32 rounded-md bg-red-500 hover:bg-red-500 md:m-2 "
+            type="button"
+            className="m-3 h-9 w-32 rounded-md bg-red-500 hover:bg-red-600 md:m-2 "
           >
             Cancelar
           </button>
