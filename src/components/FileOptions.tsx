@@ -1,9 +1,8 @@
 import { convertToUnits } from "@/utils/format";
 import { truncateString } from "@/utils/string";
-import PrivateCheckbox from "./PrivateCheckbox";
 import PermanentCheckbox from "./PermanentCheckbox";
+import PrivateCheckbox from "./PrivateCheckbox";
 import TimeInput from "./TimeInput";
-import { TFile } from "@/types/file";
 
 const FileOptions = ({ file }: { file: File }) => {
   const isMobile = window.innerWidth < 768;
