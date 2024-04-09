@@ -85,7 +85,7 @@ const FileInfo = ({ file }: { file: TFile }) => {
           </div>
           <a
             href={`${process.env.API_URI}/download/${file._id}?key=${file.key}`}
-            className="text-md flex items-center justify-center rounded bg-green-500 px-8 py-3 text-center font-bold text-white hover:bg-green-600"
+            className="text-md flex items-center justify-center rounded bg-green-500 px-8 py-3 text-center font-bold text-white transition-all delay-75 ease-in-out hover:scale-105 hover:bg-green-600"
           >
             Descargar
           </a>
