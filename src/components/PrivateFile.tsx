@@ -55,14 +55,14 @@ const PrivateFile = ({ id }: { id: string }) => {
         <form
           onClick={(e) => resetForm(e.currentTarget)}
           onSubmit={getPrivateFile}
-          className="mx-auto mt-8 flex w-[500px] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-5 "
+          className="mx-auto mt-8 flex w-[300px] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-5 text-center sm:w-[500px] sm:text-left "
         >
           <label htmlFor="key" className="text-lg">
             Coloque la clave para desbloquear su archivo
           </label>
           <div className="flex flex-col items-end gap-2">
             <input
-              className="w-[400px] p-2 text-center"
+              className="w-full p-2 text-center sm:w-[400px]"
               id="key"
               type="password"
               name="key"
