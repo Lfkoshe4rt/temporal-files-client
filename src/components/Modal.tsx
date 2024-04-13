@@ -47,7 +47,7 @@ const Modal = ({
           <motion.div
             variants={modalVariants}
             transition={{ duration: 0.25 }}
-            className="z-10 inline-block overflow-hidden  rounded-lg bg-white text-left align-bottom shadow-xl  sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
+            className="shadow-x z-10 m-4 inline-block w-full overflow-hidden rounded-lg bg-white text-left align-bottom  sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <div className="bg-white ">
               <div className="flex h-36 items-center justify-center bg-green-400 ">
@@ -74,30 +74,20 @@ const Modal = ({
                 <p className="p-1">Archivo subido correctamente</p>
 
                 {file.private && (
-                  <div className="flex items-center justify-center gap-2">
-                    <p>Clave:</p>
+                  <div className="flex flex-col items-center justify-center gap-2 sm:flex-row ">
+                    <span className="mt-3 font-bold sm:hidden">
+                      {" "}
+                      Presione sobre la clave para copiarla
+                    </span>
                     <button
                       onClick={handleCopyKey}
                       className="text-green-700 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-green-700"
                       title="Copiar clave"
                     >
-                      <span className="flex items-center gap-1">
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path d="M13 7H7V5H13V7Z" fill="currentColor" />
-                          <path d="M13 11H7V9H13V11Z" fill="currentColor" />
-                          <path d="M7 15H13V13H7V15Z" fill="currentColor" />
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z"
-                            fill="currentColor"
-                          />
-                        </svg>{" "}
+                      <span className="flex w-64 items-center sm:w-full ">
+                        <span className="hidden text-black sm:inline-block">
+                          Clave:&nbsp;
+                        </span>
                         {file.key}
                       </span>
                     </button>
