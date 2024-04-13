@@ -5,26 +5,24 @@ import { convertToUnits, formateDate } from "@/utils/format";
 import { TFile } from "@/types/file";
 import { motion, AnimatePresence } from "framer-motion";
 
+const variants = {
+  initial: { scale: 0, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  exit: { scale: 0, opacity: 0 },
+};
+
 const FileInfo = ({ file }: { file: TFile }) => {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{
-          scale: 0,
-          opacity: 0,
-        }}
-        animate={{
-          scale: 1,
-          opacity: 1,
-        }}
-        exit={{
-          scale: 0,
-          opacity: 0,
-        }}
-        className="my-16 flex h-auto w-auto gap-3 rounded-md bg-neutral-800 p-5"
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={variants}
+        className="m-4 mt-12 flex h-auto w-auto rounded-md bg-neutral-800 py-5 sm:gap-3 sm:p-6 "
       >
         <div>
-          <div className="flex h-16 w-16 items-center justify-center rounded-md bg-neutral-700">
+          <div className="hidden h-16 w-16 items-center justify-center rounded-md bg-neutral-700 sm:flex ">
             <svg
               width="50"
               height="50"
@@ -45,23 +43,25 @@ const FileInfo = ({ file }: { file: TFile }) => {
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <div className="flex flex-col">
-            <h1 className="text-2xl font-bold">{file.name}</h1>
+            <h1 className="mb-4 text-2xl font-bold sm:mb-0  ">{file.name}</h1>
 
-            <div className="flex items-center justify-between">
-              <div className="flex gap-4">
+            <div className="flex flex-col items-center justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <p className="text-lg">
                   Tamaño: {convertToUnits(Number(file.size))}
                 </p>
 
-                <p className="text-lg">
-                  Permanente : {file.permanent ? "Si" : "No"}
-                </p>
+                <div className="flex gap-5 sm:gap-4">
+                  <p className="text-lg">
+                    Permanente : {file.permanent ? "Si" : "No"}
+                  </p>
 
-                <p className="text-lg">
-                  Privado : {file.private ? "Si" : "No"}
-                </p>
+                  <p className="text-lg">
+                    Privado : {file.private ? "Si" : "No"}
+                  </p>
+                </div>
 
                 {!file.permanent && (
                   <p className="text-lg">
@@ -85,7 +85,7 @@ const FileInfo = ({ file }: { file: TFile }) => {
           </div>
           <a
             href={`${process.env.API_URI}/download/${file._id}?key=${file.key}`}
-            className="text-md flex items-center justify-center rounded bg-green-500 px-8 py-3 text-center font-bold text-white transition-all delay-75 ease-in-out hover:scale-105 hover:bg-green-600"
+            className="text-md mt-4 flex items-center justify-center rounded bg-green-500 px-24 py-3 text-center font-bold text-white transition-all delay-75 ease-in-out hover:scale-105 hover:bg-green-600 sm:mt-0 sm:px-8"
           >
             Descargar
           </a>
