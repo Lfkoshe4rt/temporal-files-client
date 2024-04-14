@@ -3,6 +3,8 @@ import PrivateFile from "@/components/PrivateFile";
 import { TResponse } from "@/types/file";
 import FileInfo from "@/components/FileInfo";
 import { redirect } from "next/navigation";
+//import Features from "@/components/Features";
+import SharingOptions from "@/components/SharingOptions";
 import Features from "@/components/Features";
 
 export default async function File({ params }: { params: { id: string } }) {
@@ -29,19 +31,16 @@ export default async function File({ params }: { params: { id: string } }) {
     <>
       <Header />
 
-      <main>
-        {!data ? <PrivateFile id={id} /> : <FileInfo file={data} />}
-
-        <div className=" mt-16 flex items-center justify-center">
-          <p className="text-md mx-4 w-[700px] text-center text-lg sm:mx-0">
-            ¡Gracias por utilizar nuestra página de subir archivos temporales!
-            Apreciamos tu confianza en nosotros para manejar tus archivos de
-            forma segura y eficiente.
-          </p>
-        </div>
-
-        <Features />
-      </main>
+      <main>{!data ? <PrivateFile id={id} /> : <FileInfo file={data} />}</main>
+      <div className="mt-16 flex flex-col items-center justify-center gap-5">
+        <p className="text-md mx-4 max-w-[700px]  text-center text-lg sm:mx-0">
+          ¡Gracias por utilizar nuestra página de subir archivos temporales!
+          Apreciamos tu confianza en nosotros para manejar tus archivos de forma
+          segura y eficiente.
+        </p>
+      </div>
+      <SharingOptions />
+      <Features />
     </>
   );
 }
