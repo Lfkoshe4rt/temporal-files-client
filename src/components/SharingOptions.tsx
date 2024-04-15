@@ -20,7 +20,7 @@ const SharingOptions = () => {
             width="35"
             height="35"
             viewBox="0 0 50 50"
-            className="text-white"
+            className="text-white transition-all duration-300 ease-in-out hover:scale-110 hover:text-slate-400"
             fill="currentColor"
             aria-label="Facebook"
           >
@@ -36,7 +36,7 @@ const SharingOptions = () => {
           <svg
             width="35"
             height="35"
-            className="text-white"
+            className="text-white transition-all duration-300 ease-in-out hover:scale-110 hover:text-slate-400"
             fill="currentColor"
             viewBox="0 0 50 50"
             aria-label="x"
@@ -47,7 +47,7 @@ const SharingOptions = () => {
 
         <a href="mailto:?subject=Check%20out%20this%20page&amp;body=Here%20is%20the%20link%20to%20the%20page:%20https%3A%2F%2Flocalhost.com%2F">
           <svg
-            className="text-white"
+            className="text-white transition-all duration-300 ease-in-out hover:scale-110 hover:text-slate-400"
             fill="currentColor"
             height="35"
             width="35"
@@ -67,7 +67,7 @@ const SharingOptions = () => {
             width="35"
             height="35"
             viewBox="0 0 24 24"
-            className="text-white"
+            className="text-white transition-all duration-300 ease-in-out hover:scale-110 hover:text-slate-400"
             fill="currentColor"
             aria-label="Copy link"
           >
