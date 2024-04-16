@@ -52,7 +52,7 @@ const SharingOptions = () => {
             height="35"
             width="35"
             viewBox="0 0 64 64"
-            enable-background="new 0 0 64 64"
+            enableBackground="new 0 0 64 64"
             aria-label="Mail"
           >
             <path
