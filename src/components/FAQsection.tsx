@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const variants = {
   initial: { opacity: 0, y: -50 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 50 },
+  exit: { opacity: 0, y: -50 },
 };
 
 const FAQsection = () => {
@@ -40,30 +40,30 @@ const FAQsection = () => {
   ];
 
   return (
-    <AnimatePresence>
-      <div className="mx-auto mt-16 max-w-3xl">
-        <div className="w-full py-6">
-          {FAQs.map((faq, index) => (
-            <div key={index} className="">
-              <button
-                className="flex w-full items-center justify-between  px-4 py-2 focus:outline-none"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+    <div className="mx-auto mt-16 max-w-3xl">
+      <div className="w-full py-6">
+        {FAQs.map((faq, index) => (
+          <div key={index} className="">
+            <button
+              className="flex w-full items-center justify-between  px-4 py-2 focus:outline-none"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            >
+              <span className="text-md my-3 font-medium text-white sm:text-lg">
+                {faq.question}
+              </span>
+              <svg
+                className={`h-4 w-4 transform transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""}`}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
               >
-                <span className="text-md my-3 font-medium text-white sm:text-lg">
-                  {faq.question}
-                </span>
-                <svg
-                  className={`h-4 w-4 transform transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""}`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    fill="currentColor"
-                    d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                  />
-                </svg>
-              </button>
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  fill="currentColor"
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </button>
+            <AnimatePresence>
               {openIndex === index && (
                 <motion.div
                   variants={variants}
@@ -77,11 +77,11 @@ const FAQsection = () => {
                   <p className="text-md sm:text-lg">{faq.answer}</p>
                 </motion.div>
               )}
-            </div>
-          ))}
-        </div>
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
-    </AnimatePresence>
+    </div>
   );
 };
 
