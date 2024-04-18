@@ -4,6 +4,7 @@ import Timer from "./Timer";
 import { convertToUnits, formateDate } from "@/utils/format";
 import { TFile } from "@/types/file";
 import { motion, AnimatePresence } from "framer-motion";
+import { truncateString } from "@/utils/string";
 
 const variants = {
   initial: { scale: 0, opacity: 0 },
@@ -45,8 +46,12 @@ const FileInfo = ({ file }: { file: TFile }) => {
 
         <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <div className="flex flex-col">
-            <h1 className="mb-4 text-2xl font-bold sm:mb-0  ">{file.name}</h1>
-
+            <h1
+              className="max-w-60 overflow-hidden truncate overflow-ellipsis whitespace-nowrap text-xl font-bold text-white sm:mb-0 sm:max-w-none"
+              title={file.name}
+            >
+              {file.name}
+            </h1>
             <div className="flex flex-col items-center justify-between">
               <div className="flex flex-col gap-4 sm:flex-row">
                 <p className="text-lg">
