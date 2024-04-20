@@ -75,15 +75,14 @@ const Modal = ({
 
                 {file.private && (
                   <div className="flex flex-col items-center justify-center gap-2 sm:flex-row ">
-                    <span className="mt-3 font-bold sm:hidden">
-                      {" "}
-                      Presione sobre la clave para copiarla
-                    </span>
                     <button
                       onClick={handleCopyKey}
-                      className="text-green-700 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-green-700"
+                      className="mt-1 text-green-700 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-green-700 sm:mt-0"
                       title="Copiar clave"
                     >
+                      <span className="text-md font-bold text-slate-600 sm:hidden">
+                        Presionar para copiar clave
+                      </span>
                       <span className="flex w-64 items-center sm:w-full ">
                         <span className="hidden text-black sm:inline-block">
                           Clave:&nbsp;
