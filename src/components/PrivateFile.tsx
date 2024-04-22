@@ -45,7 +45,6 @@ const PrivateFile = ({ id }: { id: string }) => {
     if (data) {
       setFile(data);
     } else {
-      console.log(message);
       setMessage(message);
     }
   };
