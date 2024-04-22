@@ -45,6 +45,7 @@ const PrivateFile = ({ id }: { id: string }) => {
     if (data) {
       setFile(data);
     } else {
+      console.log(message);
       setMessage(message);
     }
   };
@@ -66,6 +67,7 @@ const PrivateFile = ({ id }: { id: string }) => {
               id="key"
               type="password"
               name="key"
+              required
             />
             <span className=" font-bold text-red-600">{messages[message]}</span>
           </div>
