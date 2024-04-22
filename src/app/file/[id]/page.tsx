@@ -39,7 +39,7 @@ export default async function File({ params }: { params: { id: string } }) {
           segura y eficiente.
         </p>
       </div>
-      <SharingOptions />
+      <SharingOptions id={id} />
       <Features />
     </>
   );
