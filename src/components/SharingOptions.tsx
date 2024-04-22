@@ -1,6 +1,6 @@
 "use client";
 
-const SharingOptions = () => {
+const SharingOptions = ({ id }: { id: string }) => {
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
   };
@@ -12,7 +12,7 @@ const SharingOptions = () => {
       </h2>
       <div className="flex gap-4">
         <a
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexample.com%2F"
+          href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flfkos.ddns.net%2Ffile%2F${id}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -32,7 +32,7 @@ const SharingOptions = () => {
         </a>
 
         <a
-          href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fexample.com%2F&amp;text=https%3A%2F%2Flocalhost.com%2F&amp;hashtags=example%2Cexample2"
+          href={`https://twitter.com/intent/tweet?url=https%3A%2F%2Flfkos.ddns.net%2Ffile%2F${id}&text=Temporal%20files`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -52,7 +52,9 @@ const SharingOptions = () => {
           </svg>
         </a>
 
-        <a href="mailto:?subject=Check%20out%20this%20page&amp;body=Here%20is%20the%20link%20to%20the%20page:%20https%3A%2F%2Flocalhost.com%2F">
+        <a
+          href={`mailto:?subject=Check%20out%20this%20page&amp;body=Here%20is%20the%20link%20to%20the%20page:%20https%3A%2F%2lfkos.ddns.net%2Ffile%2F${id}`}
+        >
           <svg
             width="35"
             height="35"
