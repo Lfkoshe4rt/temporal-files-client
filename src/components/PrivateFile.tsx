@@ -2,7 +2,8 @@
 
 import { TFile, TResponse } from "@/types/file";
 import { useState } from "react";
-import FileInfo from "./FileInfo";
+import FileInfo from "@/components/FileInfo";
+import ButtonKey from "@/components/ButtonKey";
 
 const messages: { [key: string]: string } = {
   "File not found": "Archivo no encontrado",
@@ -42,11 +43,11 @@ const PrivateFile = ({ id }: { id: string }) => {
 
     const { data, message } = response;
 
-    if (data) {
-      setFile(data);
-    } else {
+    if (!data) {
       setMessage(message);
     }
+
+    setFile(data);
   };
 
   return (
@@ -79,7 +80,12 @@ const PrivateFile = ({ id }: { id: string }) => {
         </form>
       )}
 
-      {file && <FileInfo file={file} />}
+      {file && (
+        <>
+          <FileInfo file={file} />
+          <ButtonKey fileKey={file.key} />
+        </>
+      )}
     </>
   );
 };
