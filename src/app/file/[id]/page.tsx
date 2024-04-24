@@ -30,9 +30,8 @@ export default async function File({ params }: { params: { id: string } }) {
   return (
     <>
       <Header />
-
       <main>{!data ? <PrivateFile id={id} /> : <FileInfo file={data} />}</main>
-      <div className="mt-16 flex flex-col items-center justify-center gap-5">
+      <div className="mt-12 flex flex-col items-center justify-center gap-3">
         <p className="text-md mx-4 max-w-[700px]  text-center text-lg sm:mx-0">
           ¡Gracias por utilizar nuestra página de subir archivos temporales!
           Apreciamos tu confianza en nosotros para manejar tus archivos de forma
