@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Temporal Files",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="bg-neutral-900">
       <body className=" mx-auto flex min-h-screen flex-col  md:w-[1400px]  dark:text-white">
+        <Toaster position="top-right" />
         <div className="flex-1">{children}</div>
         <Footer />
       </body>
