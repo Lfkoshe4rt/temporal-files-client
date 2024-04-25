@@ -1,6 +1,9 @@
+import { toast } from "react-hot-toast";
+
 const ButtonKey = ({ fileKey }: { fileKey: string }) => {
   const handleCopyKey = () => {
     navigator.clipboard.writeText(fileKey);
+    toast.success("Clave copiada al portapapeles");
   };
 
   return (
