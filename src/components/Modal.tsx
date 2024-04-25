@@ -1,5 +1,6 @@
 import { TFile } from "@/types/file";
 import { AnimatePresence, motion } from "framer-motion";
+import { toast } from "react-hot-toast";
 
 const backdropVariants = {
   initial: { opacity: 0 },
@@ -24,6 +25,7 @@ const Modal = ({
 }) => {
   const handleCopyKey = () => {
     navigator.clipboard.writeText(file.key);
+    toast.success("Clave copiada al portapapeles");
   };
 
   return (
