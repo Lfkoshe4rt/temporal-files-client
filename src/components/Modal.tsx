@@ -25,7 +25,7 @@ const Modal = ({
 }) => {
   const handleCopyKey = () => {
     navigator.clipboard.writeText(file.key);
-    toast.success("Clave copiada al portapapeles");
+    toast.success("Clave guardada en el portapapeles");
   };
 
   return (
