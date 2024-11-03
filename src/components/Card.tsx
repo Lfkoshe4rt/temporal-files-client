@@ -1,8 +1,8 @@
-import { Card } from "@/types/card";
+import { Card as CardType } from "@/types/card";
 
-const Card = ({ content, children }: Card) => {
+const Card = ({ content, children }: CardType) => {
   return (
-    <div className="w-80 text-balance text-center flex items-center flex-col">
+    <div className="flex w-80 flex-col items-center text-balance text-center">
       {children}
       <span className="pt-2">{content}</span>
     </div>
