@@ -89,7 +89,7 @@ const FileInfo = ({ file }: { file: TFile }) => {
             </div>
           </div>
           <a
-            href={`${process.env.API_URI}/download/${file._id}?key=${file.key}`}
+            href={`${process.env.NEXT_PUBLIC_API_URL}/download/${file._id}?key=${file.key}`}
             className="text-md mt-4 flex items-center justify-center rounded bg-green-500 px-24 py-3 text-center font-bold text-white transition-all delay-75 ease-in-out hover:scale-105 hover:bg-green-600 sm:mt-0 sm:px-8"
           >
             Descargar

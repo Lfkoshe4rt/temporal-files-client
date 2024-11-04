@@ -15,9 +15,12 @@ export default async function File({ params }: { params: { id: string } }) {
     "File not found at path": () => redirect("/"),
   };
 
-  const response: TResponse = await fetch(`${process.env.API_URI}/file/${id}`, {
-    cache: "no-cache",
-  }).then((res) => res.json());
+  const response: TResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/file/${id}`,
+    {
+      cache: "no-cache",
+    },
+  ).then((res) => res.json());
 
   const { data, message } = response;
 

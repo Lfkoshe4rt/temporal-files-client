@@ -30,7 +30,7 @@ const PrivateFile = ({ id }: { id: string }) => {
     const key = formData.get("key") as string;
 
     const response: TResponse = await fetch(
-      `${process.env.API_URI}/file/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/file/${id}`,
       {
         method: "POST",
         cache: "no-cache",

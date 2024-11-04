@@ -1,6 +1,7 @@
 import { TFile } from "@/types/file";
 import { useState } from "react";
 import { persistSessionStorage } from "./persistSessionStorage";
+import { toast } from "react-hot-toast";
 
 const FileUploadLogic = () => {
   const [loading, setLoading] = useState(false);
@@ -23,9 +24,16 @@ const FileUploadLogic = () => {
 
     formData.append("file", prepareFile!);
 
+    if (!prepareFile) return;
+
+    if (prepareFile.size > 1000000) {
+      toast.error("Tamaño máximo permitido 1mb");
+      return;
+    }
+
     setLoading(true);
 
-    fetch(`${process.env.API_URI}/upload`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
       method: "POST",
       body: formData,
     })
